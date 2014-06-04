@@ -60,6 +60,9 @@ class CySend {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_TIMEOUT, 180);
         $getResult = curl_exec($ch);
+
+        $this->params = array('username' => $this->params['username']);
+
         if(curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
             return "Error contacting CY.SEND API.<br />".
             print_r(curl_getinfo($ch), true)."<br />".
